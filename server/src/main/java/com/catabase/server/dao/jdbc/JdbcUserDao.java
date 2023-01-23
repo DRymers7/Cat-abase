@@ -1,10 +1,11 @@
 package com.catabase.server.dao.jdbc;
 
+import com.catabase.server.dao.dao.UserDao;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class JdbcUserDao {
+public class JdbcUserDao implements UserDao {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -12,6 +13,6 @@ public class JdbcUserDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    
+
 
 }
