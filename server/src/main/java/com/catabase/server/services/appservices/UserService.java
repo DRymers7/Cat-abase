@@ -1,4 +1,4 @@
-package com.catabase.server.services;
+package com.catabase.server.services.appservices;
 
 import org.springframework.stereotype.Service;
 
