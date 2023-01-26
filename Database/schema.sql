@@ -1,8 +1,8 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, user_account, user_pet_preferences, user_financial_preferences, user_household_data,
-category, recommendation CASCADE;
-DROP SEQUENCE IF EXISTS seq_user_id, seq_level_id, seq_category_id, seq_recommendation_id CASCADE;
+DROP TABLE IF EXISTS users, user_account, pet, user_pet_join, user_pet_preferences, user_financial_preferences, user_household_data,
+category, recommendation, user_recommendation_join, pet_recommendation_join CASCADE;
+DROP SEQUENCE IF EXISTS seq_user_id, seq_pet_id, seq_level_id, seq_category_id, seq_recommendation_id CASCADE;
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
@@ -183,5 +183,7 @@ CREATE TABLE user_household_data (
 	CONSTRAINT PK_user_household_data PRIMARY KEY (user_id),
 	CONSTRAINT FK_user_household_data_user_account FOREIGN KEY (user_id) REFERENCES user_account(user_id)
 );
+
+INSERT INTO users (user_email,password_hash,salt,role) VALUES ('user@example.com','user1','test','ROLE_USER');
 
 COMMIT TRANSACTION;
