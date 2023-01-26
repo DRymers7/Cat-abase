@@ -36,16 +36,16 @@ public class JdbcUserAccountDao implements UserAccountDao {
     }
     private UserAccount mapRoadToObject(SqlRowSet rowSet){
         UserAccount user = new UserAccount();
-        user.setUserAge(rowSet.getInt("user_age"));
         user.setUserId(rowSet.getInt("user_id"));
+        user.setUserName(rowSet.getString("user_name"));
         user.setBalance(rowSet.getBigDecimal("balance"));
         user.setOwnsOtherPets(rowSet.getBoolean("owns_other_pets"));
+        user.setUserAge(rowSet.getInt("user_age"));
         user.setActivityLevel(rowSet.getString("activity_level"));
         user.setWorksFromHome(rowSet.getBoolean("works_from_home"));
         user.setUserAddress(rowSet.getString("user_address"));
         user.setUserStateProvince(rowSet.getString("user_state_province"));
         user.setUserCountry(rowSet.getString("user_country"));
-        user.setUserName(rowSet.getString("user_name"));
         return user;
     }
 }

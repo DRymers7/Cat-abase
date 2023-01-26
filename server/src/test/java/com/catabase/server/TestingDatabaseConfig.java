@@ -23,7 +23,7 @@ public class TestingDatabaseConfig {
             Objects.requireNonNullElse(System.getenv("DB_PORT"), "5432");
 
     private static final String DB_NAME =
-            Objects.requireNonNullElse(System.getenv("DB_NAME"), "catabase_db");
+            Objects.requireNonNullElse(System.getenv("DB_NAME"), "catabase_db_test");
 
     private static final String DB_USER =
             Objects.requireNonNullElse(System.getenv("DB_USER"), "postgres");

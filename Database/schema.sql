@@ -186,4 +186,7 @@ CREATE TABLE user_household_data (
 
 INSERT INTO users (user_email,password_hash,salt,role) VALUES ('user@example.com','user1','test','ROLE_USER');
 
+INSERT INTO user_account (user_id, user_name, balance, owns_other_pets, user_age, activity_level, works_from_home, user_address, user_state_province, user_country) 
+VALUES (1, 'Testerson mCuser', 500, true, 37, 'Highly active', true, '430 Test Lane', 'OH', 'USA');
+
 COMMIT TRANSACTION;
