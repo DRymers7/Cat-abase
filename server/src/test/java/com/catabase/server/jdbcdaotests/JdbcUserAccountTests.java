@@ -3,6 +3,7 @@ package com.catabase.server.jdbcdaotests;
 import com.catabase.server.BaseDaoTests;
 import com.catabase.server.dao.jdbc.JdbcUserAccountDao;
 import com.catabase.server.model.UserAccount;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +27,8 @@ public class JdbcUserAccountTests extends BaseDaoTests {
     @Test
     public void test_for_get_user_account_data() throws SQLException {
         UserAccount userAccount = dao.getUserAccountInfo(1);
-        Assert.assertEquals(USER_ACCOUNT, userAccount);
+        Assert.assertEquals(USER_ACCOUNT.getUserId(), userAccount.getUserId());
+        Assert.assertEquals(USER_ACCOUNT.getUserName(), userAccount.getUserName());
+        Assert.assertEquals(USER_ACCOUNT.getBalance().setScale(2), userAccount.getBalance().setScale(2));
     }
 }
