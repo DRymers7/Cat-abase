@@ -49,6 +49,7 @@ CREATE TABLE users (
 CREATE TABLE user_account (
 	
 	user_id int NOT NULL,
+	user_name varchar(64),
     balance decimal(13, 2) NOT NULL,
 	owns_other_pets boolean,
 	user_age int,
