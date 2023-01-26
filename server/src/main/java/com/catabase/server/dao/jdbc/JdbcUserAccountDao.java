@@ -23,9 +23,9 @@ public class JdbcUserAccountDao implements UserAccountDao {
 
     @Override
     public UserAccount getUserAccountInfo(int userId) throws SQLException {
-        String SQL = "SELECT user_id, balance, owns_other_pets, user_age, activity_level, works_from_home, user_address, user_state_province, user_country " +
+        String SQL = "SELECT user_id, user_name, balance, owns_other_pets, user_age, activity_level, works_from_home, user_address, user_state_province, user_country " +
                 "FROM user_account " +
-                "WHERE user_id = ?;";
+                "WHERE user_id = 1;";
         SqlRowSet sqlRowSet = jdbcTemplate.queryForRowSet(SQL, userId);
         if (sqlRowSet.next()){
             return mapRoadToObject(sqlRowSet);
