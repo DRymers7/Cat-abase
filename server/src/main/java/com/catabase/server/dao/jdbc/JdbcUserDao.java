@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class JdbcUserDao implements UserDao {
 
-    private final Logger log = LoggerFactory.getLogger(JdbcUserDao.class);
+    private static final Logger log = LoggerFactory.getLogger(JdbcUserDao.class);
     private final JdbcTemplate jdbcTemplate;
 
     public JdbcUserDao(JdbcTemplate jdbcTemplate) {
