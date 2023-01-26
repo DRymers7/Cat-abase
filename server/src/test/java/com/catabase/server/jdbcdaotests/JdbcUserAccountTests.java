@@ -3,7 +3,6 @@ package com.catabase.server.jdbcdaotests;
 import com.catabase.server.BaseDaoTests;
 import com.catabase.server.dao.jdbc.JdbcUserAccountDao;
 import com.catabase.server.model.UserAccount;
-import org.checkerframework.checker.units.qual.A;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,5 +29,7 @@ public class JdbcUserAccountTests extends BaseDaoTests {
         Assert.assertEquals(USER_ACCOUNT.getUserId(), userAccount.getUserId());
         Assert.assertEquals(USER_ACCOUNT.getUserName(), userAccount.getUserName());
         Assert.assertEquals(USER_ACCOUNT.getBalance().setScale(2), userAccount.getBalance().setScale(2));
+        Assert.assertTrue(userAccount.isOwnsOtherPets());
     }
+
 }

@@ -16,8 +16,6 @@ import java.sql.SQLException;
 
 @RestController
 @CrossOrigin
-@EnableAsync
-
 public class UserAccountController {
     private static final Logger log = LoggerFactory.getLogger(UserAccountController.class);
 
