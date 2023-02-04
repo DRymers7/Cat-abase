@@ -1,9 +1,13 @@
 package com.catabase.server;
 
+import com.catabase.server.model.petfinder.Objects.Environment;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SingleConnectionDataSource;
@@ -14,9 +18,10 @@ import java.sql.SQLException;
 import java.util.Objects;
 
 @Configuration
+@PropertySource("classpath:application.properties")
 public class TestingDatabaseConfig {
 
-    private static final String DB_Host =
+    private final static String DB_Host =
             Objects.requireNonNullElse(System.getenv("DB_HOST"), "localhost");
 
     private static final String DB_PORT =
@@ -39,8 +44,8 @@ public class TestingDatabaseConfig {
         if (System.getenv("DB_HOST") == null) {
             adminDataSource = new SingleConnectionDataSource();
             adminDataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
-            adminDataSource.setUsername("postgres");
-            adminDataSource.setPassword("postgres1");
+            adminDataSource.setUsername(DB_USER);
+            adminDataSource.setPassword(DB_PASSWORD);
             adminJdbcTemplate = new JdbcTemplate(adminDataSource);
             adminJdbcTemplate.update("DROP DATABASE IF EXISTS \"" + DB_NAME + "\";");
             adminJdbcTemplate.update("CREATE DATABASE \"" + DB_NAME + "\";");
