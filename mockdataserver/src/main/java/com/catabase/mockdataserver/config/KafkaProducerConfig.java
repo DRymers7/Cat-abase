@@ -1,2 +1,10 @@
-package com.catabase.mockdataserver.config;public class KafkaProducerConfig {
+package com.catabase.mockdataserver.config;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class KafkaProducerConfig {
+
+
+
 }
