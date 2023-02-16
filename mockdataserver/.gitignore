@@ -33,4 +33,5 @@ build/
 .vscode/
 
 ### ENV ###
-secrets.properties
+env.yml
+

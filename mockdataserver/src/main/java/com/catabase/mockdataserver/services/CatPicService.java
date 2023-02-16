@@ -22,7 +22,7 @@ public class CatPicService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CatPicService.class);
     private final RestTemplate restTemplate = new RestTemplate();
-    @Value("${catsApiUrl}")
+    @Value(value = "${cats-api.url}")
     private String baseApiUrl;
 
     public Image getCatPicture() throws GenericMockDataServerException {
