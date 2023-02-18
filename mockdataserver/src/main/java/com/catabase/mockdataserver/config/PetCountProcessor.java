@@ -14,6 +14,7 @@ public class PetCountProcessor {
 
     private static final Serde<String> STRING_SERDE = Serdes.String();
 
+    // this is for consumer - not needed for strictly producing data
     @Autowired
     void buildPipeline(StreamsBuilder streamsBuilder) {
         KStream<String, String> messageStream = streamsBuilder.stream(

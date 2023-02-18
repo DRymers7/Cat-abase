@@ -9,7 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class Pet {
+public class Pet {
+
+    @JsonProperty("pet_type")
+    private String petType;
     @JsonProperty("url")
     private String url;
     @JsonProperty("breeds")
