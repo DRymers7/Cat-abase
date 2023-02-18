@@ -2,6 +2,7 @@ package com.catabase.mockdataserver.factoryimplementation.objectfactoryimplement
 
 import com.catabase.mockdataserver.factoryimplementation.objectdao.PhotoGeneratorDao;
 import com.catabase.mockdataserver.services.CatPicService;
+import com.catabase.mockdataserver.services.DogPicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -15,14 +16,16 @@ public class PhotoGenerator implements PhotoGeneratorDao {
     @Autowired
     private CatPicService catPicService;
 
-    private String petType;
+    @Autowired
+    private DogPicService dogPicService;
+
 
     @Override
-    public Image getPetPhotos() {
-        return handlePhotoCall();
+    public Image getPetPhotos(String petType, String breed) {
+        return handlePhotoCall(petType, breed);
     }
 
-    private Image handlePhotoCall() {
+    private Image handlePhotoCall(String petType, String breed) {
         return null;
     }
 

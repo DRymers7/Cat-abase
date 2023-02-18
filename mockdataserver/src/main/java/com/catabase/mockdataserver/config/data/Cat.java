@@ -1,2 +1,5 @@
-package com.catabase.mockdataserver.config.data;public class Cat {
+package com.catabase.mockdataserver.config.data;
+
+
+public class Cat {
 }

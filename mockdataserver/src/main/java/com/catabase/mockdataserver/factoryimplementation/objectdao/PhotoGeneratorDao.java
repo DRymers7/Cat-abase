@@ -4,6 +4,6 @@ import java.awt.*;
 
 public interface PhotoGeneratorDao {
 
-    Image getPetPhotos();
+    Image getPetPhotos(String petType, String breed);
 
 }
