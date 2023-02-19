@@ -15,7 +15,4 @@ public class Cat {
     @Column(nullable = false)
     private String breed;
 
-    @Column(nullable = false)
-    private String code;
-
 }
