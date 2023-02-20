@@ -37,7 +37,9 @@ public class ContactGenerator implements ContactGeneratorDao {
     }
 
     private String createNewEmail() {
-        return fakeValuesService.bothify("????##@gmail.com");
+        String firstName = usFaker.name().firstName();
+        String lastName = usFaker.name().lastName();
+        return fakeValuesService.bothify(firstName + lastName + "##@gmail.com");
     }
 
     private String generatePhoneNumber() {

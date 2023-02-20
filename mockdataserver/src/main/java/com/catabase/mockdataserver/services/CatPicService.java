@@ -25,6 +25,8 @@ public class CatPicService {
     @Value(value = "${cats-api.url}")
     private String baseApiUrl;
 
+    @Value(value = "${cats-api.api-key}")
+
     public Image getCatPicture() throws GenericMockDataServerException {
         try {
             LOGGER.info("Making request for cat picture at " + System.currentTimeMillis());

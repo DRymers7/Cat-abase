@@ -1,5 +1,6 @@
 package com.catabase.mockdataserver.factoryimplementation.objectfactoryimplementation;
 
+import com.catabase.mockdataserver.exceptions.GenericMockDataServerException;
 import com.catabase.mockdataserver.factoryimplementation.objectdao.PhotoGeneratorDao;
 import com.catabase.mockdataserver.services.CatPicService;
 import com.catabase.mockdataserver.services.DogPicService;
@@ -21,11 +22,25 @@ public class PhotoGenerator implements PhotoGeneratorDao {
 
 
     @Override
-    public Image getPetPhotos(String petType, String breed) {
+    public String getPetPhotos(String petType, String breed) throws GenericMockDataServerException {
         return handlePhotoCall(petType, breed);
     }
 
-    private Image handlePhotoCall(String petType, String breed) {
+    private String handlePhotoCall(String petType, String breed) throws GenericMockDataServerException {
+        if (petType.equalsIgnoreCase("dog")) {
+            return returnDogPicture(breed);
+        } else if (petType.equalsIgnoreCase("cat")) {
+            return returnCatPicture(breed);
+        } else {
+            throw new GenericMockDataServerException("Cannot find pet of type " + petType);
+        }
+    }
+
+    private String returnDogPicture(String breed) {
+        return null;
+    }
+
+    private String returnCatPicture(String breed) {
         return null;
     }
 
