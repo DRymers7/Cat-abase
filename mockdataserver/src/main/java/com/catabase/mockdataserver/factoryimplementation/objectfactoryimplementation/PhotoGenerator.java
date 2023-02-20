@@ -2,13 +2,13 @@ package com.catabase.mockdataserver.factoryimplementation.objectfactoryimplement
 
 import com.catabase.mockdataserver.exceptions.GenericMockDataServerException;
 import com.catabase.mockdataserver.factoryimplementation.objectdao.PhotoGeneratorDao;
+import com.catabase.mockdataserver.model.responses.CatApiResponse;
+import com.catabase.mockdataserver.model.responses.DogApiResponse;
 import com.catabase.mockdataserver.services.CatPicService;
 import com.catabase.mockdataserver.services.DogPicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-
-import java.awt.*;
 
 @Service
 @Scope("singleton")
@@ -36,12 +36,14 @@ public class PhotoGenerator implements PhotoGeneratorDao {
         }
     }
 
-    private String returnDogPicture(String breed) {
-        return null;
+    private String returnDogPicture(String breed) throws GenericMockDataServerException {
+        DogApiResponse dogPicture = dogPicService.getDogPicture(breed);
+        return dogPicture.getMessage();
     }
 
-    private String returnCatPicture(String breed) {
-        return null;
+    private String returnCatPicture(String breed) throws GenericMockDataServerException {
+        CatApiResponse catPicture = catPicService.getCatPicture(breed);
+        return catPicture.getImageLink();
     }
 
 }

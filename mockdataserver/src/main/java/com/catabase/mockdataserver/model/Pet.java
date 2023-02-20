@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Pet {
 
+    @JsonProperty("pet_name")
+    private String petName;
     @JsonProperty("pet_type")
     private String petType;
     @JsonProperty("url")
