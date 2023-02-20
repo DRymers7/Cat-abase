@@ -1,20 +1,15 @@
 package com.catabase.mockdataserver.services;
 
 import com.catabase.mockdataserver.exceptions.GenericMockDataServerException;
+import com.catabase.mockdataserver.model.responses.CatApiResponse;
 import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.scheduling.annotation.Async;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.server.ResponseStatusException;
-
-import java.awt.*;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 @Service
 @NoArgsConstructor
@@ -26,12 +21,18 @@ public class CatPicService {
     private String baseApiUrl;
 
     @Value(value = "${cats-api.api-key}")
+    private String apiKey;
 
-    public Image getCatPicture() throws GenericMockDataServerException {
+    public CatApiResponse getCatPicture(String breed) throws GenericMockDataServerException {
         try {
             LOGGER.info("Making request for cat picture at " + System.currentTimeMillis());
-            String url = baseApiUrl + "/cat";
-            return restTemplate.getForObject(url, Image.class);
+            String url = baseApiUrl + "?name=" + breed;
+            HttpHeaders httpHeaders = new HttpHeaders();
+            httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+            httpHeaders.add("x-api-key", apiKey);
+            HttpEntity<CatApiResponse> requestEntity = new HttpEntity<>(httpHeaders);
+            ResponseEntity<CatApiResponse> response = restTemplate.exchange(url, HttpMethod.GET, requestEntity, CatApiResponse.class);
+            return response.getBody();
         } catch (ResponseStatusException e) {
             throw new GenericMockDataServerException("Could not obtain cat picture");
         }
