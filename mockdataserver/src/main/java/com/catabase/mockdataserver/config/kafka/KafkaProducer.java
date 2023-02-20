@@ -1,4 +1,4 @@
-package com.catabase.mockdataserver.config;
+package com.catabase.mockdataserver.config.kafka;
 
 import com.catabase.mockdataserver.model.Pet;
 import lombok.AllArgsConstructor;

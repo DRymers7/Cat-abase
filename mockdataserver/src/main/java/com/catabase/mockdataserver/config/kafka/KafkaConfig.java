@@ -1,4 +1,4 @@
-package com.catabase.mockdataserver.config;
+package com.catabase.mockdataserver.config.kafka;
 
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.common.serialization.Serdes;

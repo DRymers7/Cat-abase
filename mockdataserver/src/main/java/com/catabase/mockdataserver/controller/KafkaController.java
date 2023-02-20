@@ -1,6 +1,6 @@
 package com.catabase.mockdataserver.controller;
 
-import com.catabase.mockdataserver.config.KafkaProducer;
+import com.catabase.mockdataserver.config.kafka.KafkaProducer;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
