@@ -4,12 +4,12 @@ package com.catabase.mockdataproducerv2.factory.objectproducers;
 import com.catabase.mockdataproducerv2.factory.objectdao.AttributesGeneratorDao;
 import com.catabase.mockdataproducerv2.model.pojos.objects.Attributes;
 import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 
-@Service
-@Scope("singleton")
+@Component
 public class AttributesGenerator implements AttributesGeneratorDao {
 
     private final SecureRandom random = new SecureRandom();

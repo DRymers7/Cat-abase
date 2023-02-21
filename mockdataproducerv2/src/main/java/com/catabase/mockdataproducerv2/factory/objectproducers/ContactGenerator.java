@@ -7,12 +7,12 @@ import com.github.javafaker.Faker;
 import com.github.javafaker.service.FakeValuesService;
 import com.github.javafaker.service.RandomService;
 import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Locale;
 
-@Service
-@Scope("singleton")
+@Component
 public class ContactGenerator implements ContactGeneratorDao {
 
     private final FakeValuesService fakeValuesService =

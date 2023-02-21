@@ -20,7 +20,7 @@ public class Pet {
     @JsonProperty("breeds")
     private Breed breeds;
     @JsonProperty("age")
-    private String age;
+    private Integer age;
     @JsonProperty("gender")
     private String gender;
     @JsonProperty("size")
@@ -38,9 +38,7 @@ public class Pet {
     @JsonProperty("description")
     private String description;
     @JsonProperty("photos")
-    private Photos[] photos;
-    @JsonProperty("primary_photo_cropped")
-    private Photos primaryPhotoCropped;
+    private String[] photos;
     @JsonProperty("status")
     private String status;
     @JsonProperty("contact")
