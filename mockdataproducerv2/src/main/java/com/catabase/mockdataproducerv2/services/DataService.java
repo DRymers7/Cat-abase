@@ -35,4 +35,20 @@ public class DataService {
         }
     }
 
+    public int countCatBreeds() throws SQLException {
+        try {
+            return Math.toIntExact(catRepository.count());
+        } catch (DataAccessException e) {
+            throw new SQLException(e.getCause());
+        }
+    }
+
+    public int countDogBreeds() throws SQLException {
+        try {
+            return Math.toIntExact(dogRepository.count());
+        } catch (DataAccessException e) {
+            throw new SQLException(e.getCause());
+        }
+    }
+
 }
