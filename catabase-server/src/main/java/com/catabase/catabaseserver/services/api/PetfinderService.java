@@ -10,10 +10,10 @@ public class PetfinderService {
 
     private final Logger log = LoggerFactory.getLogger(PetfinderService.class);
 
-    @Value("${petfinder.api.public.key}")
+    @Value("${petfinder.api.public-key}")
     private String petfinderPublicKey;
 
-    @Value("${petfinder.api.secret.key}")
+    @Value("${petfinder.api.private-key}")
     private String petfinderSecretKey;
 
 
